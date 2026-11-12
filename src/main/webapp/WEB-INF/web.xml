@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+  <display-name>CodeQuest</display-name>
+
+  <!-- ===== ServletContext parameters (read by AppInitListener) ===== -->
+  <!-- >>> CHANGE db.user / db.password to match YOUR MySQL <<< -->
+  <context-param>
+    <param-name>db.url</param-name>
+    <param-value>jdbc:mysql://localhost:3306/codequest_db?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.user</param-name>
+    <param-value>root</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.password</param-name>
+    <param-value>root</param-value>
+  </context-param>
+  <context-param>
+    <param-name>appName</param-name>
+    <param-value>CodeQuest</param-value>
+  </context-param>
+  <context-param>
+    <param-name>xpPerLevel</param-name>
+    <param-value>100</param-value>
+  </context-param>
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+  <!-- No JSTL / EL: Expression Language is switched off for every JSP -->
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <el-ignored>true</el-ignored>
+      <page-encoding>UTF-8</page-encoding>
+    </jsp-property-group>
+  </jsp-config>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>
